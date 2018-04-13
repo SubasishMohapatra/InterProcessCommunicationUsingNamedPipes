@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7CECF182-68A9-41CD-AEFC-2E772E24D3A3}</ProjectGuid>
+    <ProjectGuid>{59C6B437-6EAE-4BE7-8327-E50B33622934}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>ClientApp</RootNamespace>
-    <AssemblyName>ClientApp</AssemblyName>
+    <RootNamespace>ServerApp</RootNamespace>
+    <AssemblyName>ServerApp</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClientListener.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -55,13 +56,15 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ClientApp.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\SharedLibrary\SharedLibrary.csproj">
       <Project>{bc7eb32c-658b-43c4-84f5-712f9a4ffea7}</Project>
       <Name>SharedLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PostBuildEvent>xcopy /s /y "$(TargetDir)ClientApp.exe" "$(SolutionDir)ServerApp\"</PostBuildEvent>
-  </PropertyGroup>
 </Project>
